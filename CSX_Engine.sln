@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2008
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CSX_Engine", "CSX_Engine\CSX_Engine.vcxproj", "{26E875FE-2EA3-4184-90D6-BA5DCCD78CD4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{26E875FE-2EA3-4184-90D6-BA5DCCD78CD4}.Debug|x64.ActiveCfg = Debug|x64
+		{26E875FE-2EA3-4184-90D6-BA5DCCD78CD4}.Debug|x64.Build.0 = Debug|x64
+		{26E875FE-2EA3-4184-90D6-BA5DCCD78CD4}.Debug|x86.ActiveCfg = Debug|Win32
+		{26E875FE-2EA3-4184-90D6-BA5DCCD78CD4}.Debug|x86.Build.0 = Debug|Win32
+		{26E875FE-2EA3-4184-90D6-BA5DCCD78CD4}.Release|x64.ActiveCfg = Release|x64
+		{26E875FE-2EA3-4184-90D6-BA5DCCD78CD4}.Release|x64.Build.0 = Release|x64
+		{26E875FE-2EA3-4184-90D6-BA5DCCD78CD4}.Release|x86.ActiveCfg = Release|Win32
+		{26E875FE-2EA3-4184-90D6-BA5DCCD78CD4}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {171BA58F-1346-4101-8BEE-36AEE9F23A5F}
+	EndGlobalSection
+EndGlobal

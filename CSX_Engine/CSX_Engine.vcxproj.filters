@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="CSX_Engine">
+      <UniqueIdentifier>{62c35937-b7a5-453f-a4d7-3d5c5c9d2eb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CSX_Engine\XorString">
+      <UniqueIdentifier>{f600f3a9-8b91-4b8d-9751-e6a70556a68b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CSX_Engine.h">
+      <Filter>CSX_Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="XorString\Indexes.h">
+      <Filter>CSX_Engine\XorString</Filter>
+    </ClInclude>
+    <ClInclude Include="XorString\Inline.h">
+      <Filter>CSX_Engine\XorString</Filter>
+    </ClInclude>
+    <ClInclude Include="XorString\MetaRandom.h">
+      <Filter>CSX_Engine\XorString</Filter>
+    </ClInclude>
+    <ClInclude Include="XorString\MetaString4.h">
+      <Filter>CSX_Engine\XorString</Filter>
+    </ClInclude>
+    <ClInclude Include="CSX_Utils.h">
+      <Filter>CSX_Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="CSX_Memory.h">
+      <Filter>CSX_Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="CSX_Log.h">
+      <Filter>CSX_Engine</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CSX_Utils.cpp">
+      <Filter>CSX_Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="CSX_Memory.cpp">
+      <Filter>CSX_Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="CSX_Log.cpp">
+      <Filter>CSX_Engine</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
