@@ -7,7 +7,7 @@ namespace CSX
 {
 	namespace Utils
 	{
-		MODULEINFO GetModuleInfo( PCHAR szModule )
+		MODULEINFO GetModuleInfo( const char* szModule )
 		{
 			MODULEINFO modinfo = { 0 };
 			HMODULE hModule = GetModuleHandleA( szModule );
@@ -21,7 +21,7 @@ namespace CSX
 
 		/* Wait dwMsec Load Module */
 
-		bool IsModuleLoad( PCHAR szModule , DWORD dwMsec )
+		bool IsModuleLoad( const char* szModule , DWORD dwMsec )
 		{
 			HMODULE hModule = GetModuleHandleA( szModule );
 

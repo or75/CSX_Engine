@@ -8,7 +8,7 @@ namespace CSX
 {
 	namespace Memory
 	{
-		PVOID FindPattern( PCHAR pPattern , __int3264 dwStart , __int3264 dwEnd , DWORD dwOffset )
+		PVOID FindPattern( const char* pPattern , __int3264 dwStart , __int3264 dwEnd , DWORD dwOffset )
 		{
 			const char* pPat = pPattern;
 			__int3264 dwFind = 0;
@@ -23,7 +23,7 @@ namespace CSX
 					if ( !dwFind )
 						dwFind = dwPtr;
 
-					if ( !pPat[2] )
+					if ( !pPat[1] || !pPat[2] )
 						return (PVOID)( dwFind + dwOffset );
 
 					if ( *(PWORD)pPat == '\?\?' || *(PBYTE)pPat != '\?' )
@@ -41,7 +41,7 @@ namespace CSX
 			return 0;
 		}
 
-		PVOID FindPattern( PCHAR szModule , PCHAR pPattern , DWORD dwOffset )
+		PVOID FindPattern( const char* szModule , const char* pPattern , DWORD dwOffset )
 		{
 			MODULEINFO mInfo = CSX::Utils::GetModuleInfo( szModule );
 

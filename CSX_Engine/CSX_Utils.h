@@ -6,10 +6,10 @@ namespace CSX
 {
 	namespace Utils
 	{
-		MODULEINFO GetModuleInfo( PCHAR szModule );
+		MODULEINFO GetModuleInfo( const char* szModule );
 
 		/* Wait dwMsec Load Module */
-		bool IsModuleLoad( PCHAR szModule , DWORD dwMsec = 5000 );
+		bool IsModuleLoad( const char* zModule , DWORD dwMsec = 5000 );
 
 		// convert int to char
 		PCHAR itoa( int i );
