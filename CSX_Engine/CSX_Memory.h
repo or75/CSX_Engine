@@ -8,7 +8,7 @@ namespace CSX
 	{
 		/* IDA Style 00 FF ?? */
 
-		PVOID FindPattern( const char* pPattern , __int3264 dwStart , __int3264 dwEnd , DWORD dwOffset );
-		PVOID FindPattern( const char* szModule , const char* pPattern , DWORD dwOffset );
+		auto FindPattern( const char* pattern , DWORD_PTR start , DWORD_PTR end , DWORD_PTR offset , DWORD read = 0 )->PVOID;
+		auto FindPattern( const char* module_name , const char* pattern , DWORD_PTR offset , DWORD read = 0 )->PVOID;
 	}
 }

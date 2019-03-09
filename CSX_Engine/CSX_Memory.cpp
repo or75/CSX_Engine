@@ -8,47 +8,54 @@ namespace CSX
 {
 	namespace Memory
 	{
-		PVOID FindPattern( const char* pPattern , __int3264 dwStart , __int3264 dwEnd , DWORD dwOffset )
+		auto FindPattern( const char* pattern , DWORD_PTR start , DWORD_PTR end , DWORD_PTR offset , DWORD read )->PVOID
 		{
-			const char* pPat = pPattern;
-			__int3264 dwFind = 0;
+			DWORD_PTR found_address = 0;
+			auto p_pattern = pattern;
 
-			for ( __int3264 dwPtr = dwStart; dwPtr < dwEnd; dwPtr++ )
+			for ( DWORD_PTR dwPtr = start; dwPtr < end; dwPtr++ )
 			{
-				if ( !*pPat )
-					return (PVOID)dwFind;
+				if ( !*p_pattern )
+					return (PVOID)found_address;
 
-				if ( *(PBYTE)pPat == '\?' || *(PBYTE)dwPtr == getByte( pPat ) )
+				if ( *(PBYTE)p_pattern == '\?' || *(PBYTE)dwPtr == getByte( p_pattern ) )
 				{
-					if ( !dwFind )
-						dwFind = dwPtr;
+					if ( !found_address )
+						found_address = (DWORD_PTR)dwPtr;
 
-					if ( !pPat[1] || !pPat[2] )
-						return (PVOID)( dwFind + dwOffset );
+					if ( !p_pattern[1] || !p_pattern[2] )
+						break;
 
-					if ( *(PWORD)pPat == '\?\?' || *(PBYTE)pPat != '\?' )
-						pPat += 3;
+					if ( *(PWORD)p_pattern == '\?\?' || *(PBYTE)p_pattern != '\?' )
+						p_pattern += 3;
 					else
-						pPat += 2;
+						p_pattern += 2;
 				}
 				else
 				{
-					pPat = pPattern;
-					dwFind = 0;
+					p_pattern = pattern;
+					found_address = 0;
 				}
 			}
 
-			return 0;
+			if ( found_address )
+			{
+				found_address += (DWORD_PTR)offset;
+
+				for ( DWORD i = 0; i < read; i++ )
+					found_address = *(PDWORD_PTR)( found_address );
+			}
+
+			return (PVOID)found_address;
 		}
 
-		PVOID FindPattern( const char* szModule , const char* pPattern , DWORD dwOffset )
+		auto FindPattern( const char* module_name , const char* pattern , DWORD_PTR offset , DWORD read )->PVOID
 		{
-			MODULEINFO mInfo = CSX::Utils::GetModuleInfo( szModule );
+			auto Info = CSX::Utils::GetModuleInfo( module_name );
+			auto Start = (DWORD_PTR)Info.lpBaseOfDll;
+			auto Size = Info.SizeOfImage;
 
-			__int3264 dwStart = (__int3264)mInfo.lpBaseOfDll;
-			DWORD dwSize = mInfo.SizeOfImage;
-
-			return FindPattern( pPattern , dwStart , dwStart + dwSize , dwOffset );
+			return FindPattern( pattern , Start , Start + Size , offset , read );
 		}
 	}
 }
